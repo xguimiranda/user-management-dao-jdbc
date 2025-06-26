@@ -28,6 +28,10 @@ public class Program {
             System.out.println(obj);
         }
 
+        System.out.println("\n === TEST 4: seller findAll ===");
+        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", 4000.0, new java.util.Date(), new Department(null, 2));
+        sellerDao.insert(newSeller);
+        System.out.println("Inserted! New id = " + newSeller.getId());
 
     }
 }
