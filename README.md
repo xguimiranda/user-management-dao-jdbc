@@ -76,7 +76,7 @@ INSERT INTO seller (Name, Email, BirthDate, BaseSalary, DepartmentId) VALUES
   ('Alex Pink','bob@gmail.com','1997-03-04 00:00:00',3000,2);
 ```
 
-## 👏 Credits
+## 👏🏻 Credits
 
 This project was developed following the [Java COMPLETO 2023 Programação Orientada a Objetos + Projetos](https://www.udemy.com/course/java-curso-completo/) course by Nelio Alves on Udemy.
 
