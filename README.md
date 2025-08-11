@@ -1,64 +1,64 @@
-# demo-dao-jdbc 💻🗃️
+# user-management-dao-jdbc 💻🗃️
 
-This project was developed as part of the Java Object-Oriented Programming (OOP) course, taught by Nelio Alves on Udemy. Its main goal is to demonstrate, in practice, how to implement the DAO (Data Access Object) pattern using JDBC for accessing relational databases in Java applications.
+Projeto desenvolvido como parte do curso de Programação Orientada a Objetos em Java (Prof. Nelio Alves – Udemy). Objetivo: demonstrar na prática a implementação do padrão **DAO (Data Access Object)** usando JDBC, aplicando separação de responsabilidades e operações CRUD.
 
-## 📄 Description
+## 📄 Descrição
 
-The **demo-dao-jdbc** project is a sample application that showcases essential concepts of OOP in Java, along with the application of the DAO pattern to separate data access logic from business logic. It uses JDBC to perform CRUD operations (Create, Read, Update, Delete) on a relational database, promoting best practices in code organization and maintainability.
+O projeto **user-management-dao-jdbc** é uma aplicação de exemplo que mostra conceitos essenciais de POO em Java juntamente com o uso do padrão DAO para separar a lógica de acesso a dados da lógica de negócio.  
+Serve como base de estudo para quem deseja consolidar:
 
-This project is ideal for anyone looking to consolidate their knowledge about:
+- 👨‍💻 Programação Orientada a Objetos em Java  
+- 🗄️ Integração com banco de dados via JDBC  
+- 📚 Implementação do padrão DAO  
+- 📝 Operações CRUD com JDBC  
+- 🏗️ Estruturação limpa de projetos Java  
 
-- 👨‍💻 Object-Oriented Programming in Java
-- 🗄️ Integrating with databases using JDBC
-- 📚 DAO pattern implementation
-- 📝 Performing CRUD operations with JDBC
-- 🏗️ Structuring Java projects in an organized way
+## 🚀 Funcionalidades
 
-## 🚀 Features
+- Cadastrar, consultar, atualizar e remover registros no banco
+- Separação clara entre camada de acesso a dados (DAO) e camada de serviço/negócio
+- Exemplos práticos do uso de JDBC (PreparedStatement, ResultSet, conexões)
 
-- Register, query, update, and remove records from the database
-- Clear separation between the data access (DAO) and business layers
-- Practical examples of using JDBC in Java
+## 🛠️ Tecnologias Utilizadas
 
-## 🛠️ Technologies used
+- Java (versão recomendada: 11 ou 17)  
+- JDBC (Java Database Connectivity)  
+- Banco Relacional (exemplo: MySQL)  
+- IDE de sua preferência (Eclipse / IntelliJ / VS Code)  
+- Driver JDBC do MySQL (ex.: mysql-connector-j)  
 
-- Java
-- JDBC (Java Database Connectivity)
-- Relational Database (MySQL, PostgreSQL, or any compatible database)
-- Your preferred IDE (Eclipse, IntelliJ, VSCode, etc.)
+## 🏁 Como Executar
 
-## 🏁 How to run the project
-
-1. Clone this repository:
+1. Clonar o repositório:
    ```bash
-   git clone https://github.com/xguimiranda/demo-dao-jdbc.git
+   git clone https://github.com/xguimiranda/user-management-dao-jdbc.git
+   cd user-management-dao-jdbc
    ```
-2. Import the project into your favorite Java IDE.
-3. Configure database access in the configuration file (URL, user, and password).
-4. Run the application.
+2. Importar o projeto na sua IDE favorita.  
+3. Configurar as credenciais do banco (URL, usuário e senha) no arquivo de configuração (ex.: `db.properties` ou dentro da classe util, conforme implementação).  
+4. Criar o schema/tabelas usando o script SQL abaixo.  
+5. Executar a classe principal / testes de DAO.  
 
-> **Note:** Make sure your database is created and configured correctly according to the course instructions.
+> Certifique-se de que o banco MySQL está ativo e acessível.
 
-## 🗂️ Database Structure (MySQL)
-
-Below is the SQL code used to create and populate the database in MySQL Workbench:
+## 🗂️ Estrutura de Banco (MySQL)
 
 ```sql
 CREATE TABLE department (
-  Id int(11) NOT NULL AUTO_INCREMENT,
-  Name varchar(60) DEFAULT NULL,
+  Id INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(60) DEFAULT NULL,
   PRIMARY KEY (Id)
 );
 
 CREATE TABLE seller (
-  Id int(11) NOT NULL AUTO_INCREMENT,
-  Name varchar(60) NOT NULL,
-  Email varchar(100) NOT NULL,
-  BirthDate datetime NOT NULL,
-  BaseSalary double NOT NULL,
-  DepartmentId int(11) NOT NULL,
+  Id INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(60) NOT NULL,
+  Email VARCHAR(100) NOT NULL,
+  BirthDate DATETIME NOT NULL,
+  BaseSalary DOUBLE NOT NULL,
+  DepartmentId INT NOT NULL,
   PRIMARY KEY (Id),
-  FOREIGN KEY (DepartmentId) REFERENCES department (id)
+  FOREIGN KEY (DepartmentId) REFERENCES department (Id)
 );
 
 INSERT INTO department (Name) VALUES 
@@ -73,13 +73,35 @@ INSERT INTO seller (Name, Email, BirthDate, BaseSalary, DepartmentId) VALUES
   ('Alex Grey','alex@gmail.com','1988-01-15 00:00:00',2200,1),
   ('Martha Red','martha@gmail.com','1993-11-30 00:00:00',3000,4),
   ('Donald Blue','donald@gmail.com','2000-01-09 00:00:00',4000,3),
-  ('Alex Pink','bob@gmail.com','1997-03-04 00:00:00',3000,2);
+  ('Alex Pink','alex.pink@gmail.com','1997-03-04 00:00:00',3000,2);
 ```
 
-## 👏🏻 Credits
+(Se quiser manter exatamente como no curso, deixe o e-mail duplicado.)
 
-This project was developed following the [Java COMPLETO 2023 Programação Orientada a Objetos + Projetos](https://www.udemy.com/course/java-curso-completo/) course by Nelio Alves on Udemy.
+## 🧪 Possíveis Testes
+
+- Inserção de novo vendedor  
+- Atualização de salário  
+- Busca por departamento  
+- Remoção com validação de chave estrangeira  
+
+## 🔧 Estrutura Conceitual (diretórios típicos)
+
+```
+src/
+ ├── application/        # Programa principal / testes
+ ├── db/                 # Utilidades de conexão (DB, exceptions)
+ ├── model/
+ │    ├── entities/      # Entidades (Seller, Department)
+ │    ├── dao/           # Interfaces DAO
+ │    └── dao/impl/      # Implementações JDBC
+ └── resources/          # Arquivos de configuração (se aplicável)
+```
+
+## 👏🏻 Créditos
+
+Projeto baseado no curso [Java COMPLETO Programação Orientada a Objetos + Projetos](https://www.udemy.com/course/java-curso-completo/) do Prof. Nelio Alves (Udemy).
 
 ---
 
-Feel free to use this project as a basis for your studies or future developments! 🚀
+Sinta-se à vontade para usar este projeto como base para estudos ou evoluções! 🚀
