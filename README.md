@@ -1,7 +1,7 @@
 # user-management-dao-jdbc 💻🗃️
 
 Projeto desenvolvido como parte do curso de Programação Orientada a Objetos em Java (Prof. Nelio Alves – Udemy). Objetivo: demonstrar na prática a implementação do padrão **DAO (Data Access Object)** usando JDBC, aplicando separação de responsabilidades e operações CRUD.
-
+ 
 ## 📄 Descrição
 
 O projeto **user-management-dao-jdbc** é uma aplicação de exemplo que mostra conceitos essenciais de POO em Java juntamente com o uso do padrão DAO para separar a lógica de acesso a dados da lógica de negócio.  
