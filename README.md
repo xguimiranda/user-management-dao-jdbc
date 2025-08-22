@@ -100,7 +100,7 @@ src/
 
 ## 👏🏻 Créditos
 
-Projeto baseado no curso [Java COMPLETO Programação Orientada a Objetos + Projetos](https://www.udemy.com/course/java-curso-completo/) do Prof. Nelio Alves (Udemy).
+Projeto baseado no curso [Java COMPLETO Programação Orientada a Objetos + Projetos](https://www.udemy.com/course/java-curso-completo/) do Prof. Nelio Alves (Udemy)
 
 ---
 
